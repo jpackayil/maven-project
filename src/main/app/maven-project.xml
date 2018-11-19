@@ -22,7 +22,7 @@ http://www.mulesoft.org/schema/mule/jms http://www.mulesoft.org/schema/mule/jms/
     </flow>
     <flow name="logFlights">
         <jms:inbound-endpoint queue="flights" connector-ref="Active_MQ" doc:name="JMS"/>
-        <logger message="#[payload]" level="INFO" doc:name="Logger"/>
+        <logger message="#[&quot;Payload - &quot; + payload]" level="INFO" doc:name="Logger"/>
     </flow>
     <flow name="retrieveFlights">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/flights" doc:name="HTTP"/>
